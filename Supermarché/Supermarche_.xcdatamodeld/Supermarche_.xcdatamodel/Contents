@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11G63" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="RYNOptions" representedClassName="RYNOptions" syncable="YES">
+        <attribute name="autoremovalEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="priceCompEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="shopMemEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <entity name="RYNPurchasedItem" representedClassName="RYNPurchasedItem" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="originalQuantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="purchased" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="list" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="RYNPurchasedList" inverseName="items" inverseEntity="RYNPurchasedList" syncable="YES"/>
+    </entity>
+    <entity name="RYNPurchasedList" representedClassName="RYNPurchasedList" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="RYNPurchasedItem" inverseName="list" inverseEntity="RYNPurchasedItem" syncable="YES"/>
+    </entity>
+    <entity name="RYNTemplateItem" representedClassName="RYNTemplateItem" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="list" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="RYNTemplateList" inverseName="items" inverseEntity="RYNTemplateList" syncable="YES"/>
+    </entity>
+    <entity name="RYNTemplateList" representedClassName="RYNTemplateList" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="RYNTemplateItem" inverseName="list" inverseEntity="RYNTemplateItem" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="RYNOptions" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="RYNPurchasedItem" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="RYNPurchasedList" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="RYNTemplateItem" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="RYNTemplateList" positionX="0" positionY="0" width="128" height="90"/>
+    </elements>
+</model>
